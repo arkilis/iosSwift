@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        textFiledName.delegate = self
+        textFieldName.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,9 +22,10 @@ class ViewController: UIViewController, UITextFieldDelegate{
     }
 
 
-    @IBOutlet var textFiledName : UITextField = nil
     
-    
+    @IBOutlet var textFieldName : UITextField = nil
+ 
+    // inner-build function, not quite sure why it is not OVERRIDE
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
@@ -33,6 +34,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
 
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        // Can be done by either the following way
+        textFieldName.resignFirstResponder()
         self.view.endEditing(true)
     }
 }
